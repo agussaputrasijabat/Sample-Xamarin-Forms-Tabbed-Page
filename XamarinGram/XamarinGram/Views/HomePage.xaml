@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Helpers="clr-namespace:XamarinGram.Helpers"
+             xmlns:FFImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="XamarinGram.Views.HomePage"
+             Title="Home">
+
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add New" Icon="ic_icon_plus.png"/>
+    </ContentPage.ToolbarItems>-->
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Helpers:HtmlToTextConverter x:Key="HtmlToText" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="listview" SelectionMode="None" SeparatorVisibility="None" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Frame Padding="15" CornerRadius="10" HasShadow="True">
+                                    <StackLayout VerticalOptions="FillAndExpand">
+                                        <Image Source="{Binding Media.Medium.SourceUrl}" Aspect="AspectFill" HeightRequest="150" Margin="-15,-15,-15,10"/>
+                                        <Label Text="{Binding Title.Rendered, Converter={StaticResource HtmlToText}}" HorizontalOptions="StartAndExpand" FontSize="Large" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Excerpt.Rendered, Converter={StaticResource HtmlToText}}" MaxLines="3" LineBreakMode="TailTruncation" HorizontalOptions="StartAndExpand" />
+                                        <StackLayout Orientation="Horizontal" Padding="0,15,0,0">
+                                            <Button Text="Details" WidthRequest="80" HeightRequest="40" BackgroundColor="#567CFF" TextColor="White" BorderRadius="8"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <ContentView Padding="15">
+                        <ActivityIndicator x:Name="BusyIndicator" IsRunning="True" HorizontalOptions="CenterAndExpand"/>
+                    </ContentView>
+                </ListView.Footer>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

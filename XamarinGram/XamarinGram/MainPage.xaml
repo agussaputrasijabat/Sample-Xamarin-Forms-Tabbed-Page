@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Views="clr-namespace:XamarinGram.Views"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             android:TabbedPage.IsSwipePagingEnabled="False"
+             android:TabbedPage.IsSmoothScrollEnabled="False"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             android:TabbedPage.BarSelectedItemColor="#567CFF"
+             x:Class="XamarinGram.MainPage"
+             Title="Home">
+
+    <NavigationPage Title="Home" Icon="ic_icon_home.png" BarBackgroundColor="#FAFAFA" BarTextColor="Black">
+        <x:Arguments>
+            <Views:HomePage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Favorites" Icon="ic_icon_heart.png" BarBackgroundColor="#FAFAFA" BarTextColor="Black">
+        <x:Arguments>
+            <Views:FavoritePage/>
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="Settings" Icon="ic_icon_settings.png" BarBackgroundColor="#FAFAFA" BarTextColor="Black">
+        <x:Arguments>
+            <Views:SettingsPage />
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>
